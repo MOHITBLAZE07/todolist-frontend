@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios'
 import './App.css';
 import { timeAgo } from './timeAgo';
+const url = "https://todolist-backend-nbou.vercel.app/";
 function App() {
   const [task, setTask] = useState("");
   const [list, setList] = useState([]);
@@ -11,7 +12,7 @@ function App() {
     fetch();
   },[])
   const fetch = async() => {
-    await axios.get('http://localhost:5000/gettask').then((res)=>{
+    await axios.get(url).then((res)=>{
       setList(res.data.myLists)
       console.log(res.data.myLists)
     }).catch(err=>{
@@ -23,7 +24,7 @@ function App() {
       alert('write something');
       return;
     }
-    await axios.post('http://localhost:5000/addtask',{task:task})
+    await axios.post(url,{task:task})
     .then((res)=>{
       console.log(res.data);
       setTask("")
@@ -38,7 +39,7 @@ function App() {
     setUpdateTaskId(id);
   }
   const updateTask = async() => {
-     await axios.put(`http://localhost:5000/edittask/${updateTaskId}`,{task:task}).then(res=>{
+     await axios.put(url,{task:task,updateTaskId:updateTaskId}).then(res=>{
       console.log(res);
       setTask("")
       setToggle(false);
@@ -48,7 +49,7 @@ function App() {
      })
   }
   const deleteTask = async(userid) => {
-    await axios.delete(`http://localhost:5000/deletetask/${userid}`).
+    await axios.delete(url,{userid:userid}).
     then(res=>{
       console.log(res);
       fetch();
