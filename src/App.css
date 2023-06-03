@@ -1,38 +1,62 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
+  max-width: 800px;
+  margin:0 auto;
+  margin-block: 100px;
+  /* border: 2px solid black; */
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.add-container {
+  display:flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  white-space: nowrap;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+
+  /* border: 2px solid red; */
+}
+.add-container  input {
+   width: 100%;
+   padding:20px 25px;
+  font-size: 1.2rem;
+
+}
+.add-container input:focus {
+  outline: none;
+}
+.add-container button {
+  padding:20px 26px;
+  font-size: 1.2rem;
+
 }
 
-.App-link {
-  color: #61dafb;
+.list-container {
+  /* border: 3px solid blue; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.1px solid gray;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+li p {
+  
+}
+
+li button {
+  padding:5px 10px;
+  margin-right: 7px;
+}
+
+.updateCross {
+
 }
